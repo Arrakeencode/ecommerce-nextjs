@@ -1,9 +1,6 @@
-import {mongooseConnect} from "@/lib/mongoose";
-import { Product } from "@/models/Product";
-import NewProducts from "@/components/NewProducts";
 
 
-export default function Home({newProducts}) {
+export default function Home() {
   return (
       <>
         <h1>Bienvenue sur votre magasin de tennis </h1>
@@ -18,19 +15,9 @@ export default function Home({newProducts}) {
                       dicta incidunt est ipsam, officia dolor fugit natus?
                   </p>
               </div>
-              <NewProducts newProducts={newProducts}/>
+
           </div>
       </>
   );
 }
 
-export async function getServerSideProps() {
-    await mongooseConnect();
-    const newProducts = await Product.find({}, null, {sort: {'_id': 1}, limit: 4})
-
-    return {
-        props: {
-            newProducts: JSON.parse(JSON.stringify(newProducts)),
-        }
-    }
-}
