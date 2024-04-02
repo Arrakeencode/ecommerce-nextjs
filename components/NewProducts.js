@@ -50,7 +50,6 @@ export default function NewProducts({newProducts}){
                     </div>
                 ))}
             </ul>
-            ))}
         </section>
     )
 }
