@@ -11,6 +11,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^1.0.10",
     "axios": "^1.6.8",
     "mongodb": "^6.5.0",
     "mongoose": "^8.2.4",
