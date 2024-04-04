@@ -52,11 +52,11 @@ export default function Cart(){
                         {products?.length > 0 && products.map((product) => (
                             <div key={product._id} className="mt-8">
                                 <ul className="space-y-4">
-                                    <li className="flex items-center gap-4 justify-between">
+                                    <li className="text-center items-center gap-4 justify-between sm:flex">
                                         <img
                                             src={product.images[0]}
                                             alt=""
-                                            className="h-16  rounded object-cover"
+                                            className="h-16 m-auto rounded object-cover sm:m-0"
                                         />
 
                                         <div>
@@ -70,7 +70,7 @@ export default function Cart(){
                                         <div>
                                             <label htmlFor="Quantity" className="sr-only"> Quantity </label>
 
-                                            <div className="flex items-center gap-1">
+                                            <div className="items-center gap-1 flex justify-center">
                                                 <button
                                                     type="button"
                                                     className="w-10 h-10 leading-10 text-text transition hover:opacity-75 border "

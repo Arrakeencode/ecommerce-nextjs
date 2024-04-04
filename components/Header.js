@@ -2,9 +2,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import {useContext, useState} from "react";
 import {CartContext} from "@/lib/context/CartContext";
+import {signIn, signOut, useSession} from "next-auth/react";
 
 export default function Header() {
-
+    const { data: session } = useSession()
     const router = useRouter()
     const {pathname} = router
     const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -45,14 +46,19 @@ export default function Header() {
                         </nav>
 
                         <div className="flex items-center gap-1.5 sm:gap-4">
-
-                                <Link
+                            {session ? (
+                                <button className="h-9 w-9" onClick={() => signOut()}>
+                                    <img className="h-full w-full rounded-full object-cover object-center"
+                                         src={session.user.image} alt={session.user.email}/>
+                                </button>
+                            ) : (
+                                <button
                                     className="block rounded-md bg-teal-600 px-2.5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
-                                    href="#"
+                                    onClick={() => signIn('google')}
                                 >
                                     Connexion
-                                </Link>
-
+                                </button>
+                            )}
                                 <Link
                                     className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block"
                                     href="#"
