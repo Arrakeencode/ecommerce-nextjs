@@ -41,14 +41,14 @@ export default async function handler(req, res) {
     }
 
     const orderDoc = await Order.create({
-        line_items, email, name, address, city, country, zip, paid: false, send: false
+        line_items, email, name, address, city, country, zip, paid: false,
     })
 
     const session = await stripe.checkout.sessions.create({
         line_items,
         mode: 'payment',
         customer_email: email,
-        success_url: process.env.SUCCESS_URL + '/success?success=1',
+        success_url: process.env.SUCCESS_URL + '/success',
         cancel_url: process.env.SUCCESS_URL + '/cart?canceled=1',
         metadata: { orderId: orderDoc._id.toString(), test: 'ok' }
     })

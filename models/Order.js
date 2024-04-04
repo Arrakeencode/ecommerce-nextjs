@@ -9,7 +9,6 @@ const OrderSchema = new Schema({
     address:String,
     country:String,
     paid:Boolean,
-    send:{ type: Boolean, default: false },
 }, {
     timestamps: true,
 });
