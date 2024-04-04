@@ -41,7 +41,7 @@ export default async function handler(req, res) {
     }
 
     const orderDoc = await Order.create({
-        line_items, email, name, address, city, country, zip, paid: false
+        line_items, email, name, address, city, country, zip, paid: false, send: false
     })
 
     const session = await stripe.checkout.sessions.create({
@@ -52,6 +52,7 @@ export default async function handler(req, res) {
         cancel_url: process.env.SUCCESS_URL + '/cart?canceled=1',
         metadata: { orderId: orderDoc._id.toString(), test: 'ok' }
     })
+
 
     res.json({
         url: session.url,
