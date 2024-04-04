@@ -29,7 +29,7 @@ export default function Cart(){
         removeProduct(id);
     }
 
-    function deleteCart(id) {
+    function deleteCart() {
         clearCart();
     }
 

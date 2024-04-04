@@ -2,7 +2,6 @@ import {mongooseConnect} from "@/lib/mongoose";
 import { Product } from "@/models/Product";
 import NewProducts from "@/components/NewProducts";
 
-
 export default function Home({newProducts}) {
   return (
       <>
