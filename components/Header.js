@@ -1,22 +1,27 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import {useContext} from "react";
+import {useContext, useState} from "react";
 import {CartContext} from "@/lib/context/CartContext";
 
 export default function Header() {
 
     const router = useRouter()
     const {pathname} = router
+    const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
     const {cartProducts} = useContext(CartContext)
+
+    const toggleMobileNav = () => {
+        setIsMobileNavOpen(!isMobileNavOpen);
+    };
 
     const active = "text-blue-500 transition hover:text-blue-500/75 p-3 bg-gray-200 rounded-md"
     const inactive = "text-gray-500 transition hover:text-gray-500/75 p-3"
 
 
         return (
-            <header className="bg-white">
-                <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
+            <header className="bg-white fixed w-full z-50 border-b-2 sm:relative">
+                <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-2 sm:px-6 lg:px-8 sm:px:4">
                     <a className="block text-teal-600" href="#">
                         <span className="sr-only">Home</span>
                         <svg className="h-8" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -39,13 +44,13 @@ export default function Header() {
                             </ul>
                         </nav>
 
-                        <div className="flex items-center gap-4">
-                            <div className="sm:flex sm:gap-4">
+                        <div className="flex items-center gap-1.5 sm:gap-4">
+
                                 <Link
-                                    className="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
+                                    className="block rounded-md bg-teal-600 px-2.5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
                                     href="#"
                                 >
-                                    Se connecter
+                                    Connexion
                                 </Link>
 
                                 <Link
@@ -55,35 +60,94 @@ export default function Header() {
                                     S inscrire
                                 </Link>
                                 <Link
-                                    className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block"
+                                    className="block rounded-md bg-gray-100 px-2.5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 "
                                     href="/cart"
                                 >
                                     <div className="flex">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                             strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                                             strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
                                             <path strokeLinecap="round" strokeLinejoin="round"
                                                   d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/>
                                         </svg>
                                         <span className="ml-2 text-primary font-bold group-hover:text-text">{cartProducts.length}</span>
                                     </div>
                                 </Link>
+
+
+                            <div className="block mr-0 md:hidden">
+                                <button
+                                    onClick={toggleMobileNav}
+                                    className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
+                                >
+                                    {isMobileNavOpen ? (
+                                        // X icon for close
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="h-6 w-6"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                d="M6 18L18 6M6 6l12 12"
+                                            />
+                                        </svg>
+                                    ) : (
+                                        // Menu icon for open
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="h-6 w-6"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                d="M4 6h16M4 12h16M4 18h16"
+                                            />
+                                        </svg>
+                                    )}
+                                </button>
                             </div>
 
-                            <button
-                                className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
-                            >
-                                <span className="sr-only">Toggle menu</span>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-                                </svg>
-                            </button>
+                            {isMobileNavOpen && (
+                                <div className="md:hidden absolute top-16 right-0 bg-white border border-zinc-200 rounded shadow-lg p-6 text-lg ">
+                                    <nav aria-label="Global">
+                                        <ul className="flex flex-col items-start gap-6 text-md">
+                                            <li>
+                                                <Link className={`text-accent transition hover:text-accent/75 ${pathname === '/' ? active : inactive} `} href="/"
+                                                      onClick={toggleMobileNav}
+                                                >
+                                                    Home
+                                                </Link>
+                                            </li>
+
+                                            <li>
+                                                <Link className={`text-accent transition hover:text-accent/75 ${pathname === '/products' ? active : inactive}`} href="/products"
+                                                      onClick={toggleMobileNav}
+                                                >
+                                                    All Products
+                                                </Link>
+                                            </li>
+
+                                            <li>
+                                                <Link className={`text-accent transition hover:text-accent/75 ${pathname === '/categories' ? active : inactive}`} href="/categories"
+                                                      onClick={toggleMobileNav}
+                                                >
+                                                    Categories
+                                                </Link>
+                                            </li>
+
+
+                                        </ul>
+                                    </nav>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
