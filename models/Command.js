@@ -1,6 +1,6 @@
 import {model, models, Schema} from "mongoose";
 
-const OrderSchema = new Schema({
+const CommandSchema = new Schema({
     line_items:Object,
     name:String,
     email:String,
@@ -9,8 +9,9 @@ const OrderSchema = new Schema({
     address:String,
     country:String,
     paid:Boolean,
+    shipped:Boolean
 }, {
     timestamps: true,
 });
 
-export const Order = models?.Order || model('Order', OrderSchema);
+export const Command = models?.Command || model('Command', CommandSchema);

@@ -1,6 +1,7 @@
 import { mongooseConnect } from "@/lib/mongoose";
-import { Order } from "@/models/Order";
 import { Product } from "@/models/Product";
+import { Command } from "@/models/Command";
+
 const stripe = require('stripe')(process.env.STRIPE_KEY);
 
 export default async function handler(req, res) {
@@ -40,8 +41,9 @@ export default async function handler(req, res) {
         }
     }
 
-    const orderDoc = await Order.create({
-        line_items, email, name, address, city, country, zip, paid: false,
+
+    const orderDoc = await Command.create({
+        line_items, email, name, address, city, country, zip, paid: false, shipped: false,
     })
 
     const session = await stripe.checkout.sessions.create({
