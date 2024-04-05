@@ -23,7 +23,12 @@ export default function CookieBanner(){
 
         setLocalStorage("cookie_consent", cookieConsent);
 
-        const cleanupLocalStorage = () => {
+        const cleanupLocalStorage = (event) => {
+            if (!event) {
+                // Si l'événement est indéfini, cela signifie probablement un rafraîchissement de la page
+                return;
+            }
+            // Si l'événement est défini, cela signifie que l'utilisateur quitte la page
             setLocalStorage("cookie_consent", null);
         };
         window.addEventListener('beforeunload', cleanupLocalStorage);
