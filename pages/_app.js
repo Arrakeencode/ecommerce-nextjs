@@ -7,18 +7,11 @@ import {CartContextProvider} from "@/lib/context/CartContext";
 import {Toaster} from "react-hot-toast";
 import { GoogleAnalytics } from '@next/third-parties/google'
 import CookieBanner from "@/components/CookieBanner";
-import {cleanLocalStorageOnUnload} from "@/lib/storageConsent";
-import {useEffect} from "react";
-
 
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function App({ Component, pageProps: { session, ...pageProps } }) {
-
-  useEffect(() => {
-    cleanLocalStorageOnUnload('cookie_consent');
-  }, []);
 
   return <>
     <SessionProvider session={session}>

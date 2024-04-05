@@ -20,12 +20,17 @@ export default function CookieBanner(){
             'analytics_storage': newValue,
         });
 
-        console.log(gtag)
 
         setLocalStorage("cookie_consent", cookieConsent);
 
-        // For Testing
-        console.log("Cookie Consent: ", cookieConsent);
+        const cleanupLocalStorage = () => {
+            setLocalStorage("cookie_consent", null);
+        };
+        window.addEventListener('beforeunload', cleanupLocalStorage);
+
+        return () => {
+            window.removeEventListener('beforeunload', cleanupLocalStorage);
+        };
     }, [cookieConsent]);
 
     return (
