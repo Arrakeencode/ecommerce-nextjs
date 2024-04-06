@@ -11,6 +11,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "@auth/mongodb-adapter": "^2.5.2",
     "@next/third-parties": "^14.1.4",
     "axios": "^1.6.8",
     "mongodb": "^6.5.0",
