@@ -2,10 +2,12 @@ import {useContext, useEffect, useState} from "react";
 import {CartContext} from "@/lib/context/CartContext";
 import axios from "axios";
 import Link from "next/link";
+import Spinner from "@/components/Spinner";
 
 export default function Cart(){
     const { cartProducts, removeProduct, addProduct, clearCart } = useContext(CartContext);
     const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         console.log(cartProducts)
@@ -14,7 +16,7 @@ export default function Cart(){
                 .then(response => {
                     console.log(response.data); // Ajoutez cette ligne pour afficher les produits dans la console
                     setProducts(response.data);
-
+                    setLoading(false)
                 })
         } else {
             setProducts([]);
@@ -49,7 +51,12 @@ export default function Cart(){
 
                 <div className="mt-8">
                     <ul className="space-y-4">
-                        {products?.length > 0 && products.map((product) => (
+                        {loading ? (
+                                <div className="absolute inset-0 flex justify-center items-center">
+                                    <Spinner />
+                                </div>
+                            ) :
+                        products?.length > 0 && products.map((product) => (
                             <div key={product._id} className="mt-8">
                                 <ul className="space-y-4">
                                     <li className="text-center items-center gap-4 justify-between sm:flex">
