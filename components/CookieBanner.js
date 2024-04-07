@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { getLocalStorage, setLocalStorage } from '@/lib/storageConsent';
 import { useState, useEffect } from 'react';
 
@@ -19,8 +18,6 @@ export default function CookieBanner(){
             'ad_storage': newValue,
             'analytics_storage': newValue,
         });
-
-
         setLocalStorage("cookie_consent", cookieConsent);
 
         const cleanupLocalStorage = () => {
@@ -40,13 +37,13 @@ export default function CookieBanner(){
                          bg-gray-700 rounded-lg shadow`}>
 
             <div className='text-center'>
-                <Link href="/info/cookies"><p>We use <span className='font-bold text-sky-400'>cookies</span> on our site.</p></Link>
+                <p>Nous utilisons des <span className='font-bold text-tennis'>cookies</span> sur notre site.</p>
             </div>
 
 
             <div className='flex gap-2'>
-                <button className='px-5 py-2 text-gray-300 rounded-md border-gray-900' onClick={() => setCookieConsent(false)}>Decline</button>
-                <button className='bg-gray-900 px-5 py-2 text-white rounded-lg' onClick={() => setCookieConsent(true)}>Allow Cookies</button>
+                <button className='px-5 py-2 text-gray-300 rounded-md border-gray-900' onClick={() => setCookieConsent(false)}>Refuser</button>
+                <button className='bg-gray-900 px-5 py-2 text-white rounded-lg' onClick={() => setCookieConsent(true)}>Accepter</button>
             </div>
         </div>
     )}

@@ -13,15 +13,11 @@ export default function Footer(){
                             <a href="mailto:bryanjustb@gmail.com" className="text-gray-500 transition hover:opacity-75"> Contact </a>
                         </li>
                         <li>
-                            <a href="#" className="text-gray-500 transition hover:opacity-75"> Terms & Conditions </a>
+                            <a href="#" className="text-gray-500 transition hover:opacity-75"> Politique de confidentialité </a>
                         </li>
 
                         <li>
-                            <a href="#" className="text-gray-500 transition hover:opacity-75"> Privacy Policy </a>
-                        </li>
-
-                        <li>
-                            <a href="#" className="text-gray-500 transition hover:opacity-75"> Cookies </a>
+                            <a href="#" className="text-gray-500 transition hover:opacity-75"> Mention légale </a>
                         </li>
                     </ul>
                 </div>
