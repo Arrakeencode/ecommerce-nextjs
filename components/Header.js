@@ -53,7 +53,7 @@ export default function Header() {
                                 </button>
                             ) : (
                                 <button
-                                    className="block rounded-md bg-teal-600 px-2.5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
+                                    className="block rounded-md bg-tennis px-2.5 py-2.5 text-sm font-medium text-white transition hover:bg-tennis/55"
                                     onClick={() => signIn('google')}
                                 >
                                     Connexion
@@ -121,7 +121,7 @@ export default function Header() {
                                     <nav aria-label="Global">
                                         <ul className="flex flex-col items-start gap-6 text-md">
                                             <li>
-                                                <Link className={`text-accent transition hover:text-accent/75 ${pathname === '/' ? active : inactive} `} href="/"
+                                                <Link className={` ${pathname === '/' ? active : inactive} `} href="/"
                                                       onClick={toggleMobileNav}
                                                 >
                                                     Acceuil
@@ -129,7 +129,7 @@ export default function Header() {
                                             </li>
 
                                             <li>
-                                                <Link className={`text-accent transition hover:text-accent/75 ${pathname === '/products' ? active : inactive}`} href="/products"
+                                                <Link className={` ${pathname === '/products' ? active : inactive}`} href="/products"
                                                       onClick={toggleMobileNav}
                                                 >
                                                     Produits
@@ -137,7 +137,7 @@ export default function Header() {
                                             </li>
 
                                             <li>
-                                                <Link className={`text-accent transition hover:text-accent/75 ${pathname === '/cart' ? active : inactive}`} href="/cart"
+                                                <Link className={` ${pathname === '/cart' ? active : inactive}`} href="/cart"
                                                       onClick={toggleMobileNav}
                                                 >
                                                     Panier
