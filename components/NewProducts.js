@@ -12,7 +12,7 @@ export default function NewProducts({newProducts}){
                     <div key={product.id}>
                         <li>
                             <div className="group block overflow-hidden">
-                                <div className="relative md:h-[300px] h-[200px]">
+                                <div className="relative md:h-[250px] h-[200px]">
                                     <img
                                         src={product.images[0]}
                                         alt=""
@@ -24,9 +24,9 @@ export default function NewProducts({newProducts}){
                                         className="absolute inset-0 h-full w-full object-contain opacity-0 group-hover:opacity-100"
                                     />
                                 </div>
-                                <div className="relative bg-white pt-3">
+                                <div className="relative bg-white pt-2">
                                     <Link href={'/products/' + product._id}>
-                                        <h3 className="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
+                                        <h3 className="text-base text-gray-700 hover:underline " >
                                             {product.title}
                                         </h3>
                                     </Link>
@@ -34,12 +34,12 @@ export default function NewProducts({newProducts}){
                                     <p className="mt-2">
                                         <span className="sr-only"> Regular Price </span>
 
-                                        <span className="tracking-wider text-gray-900"> {product.price} €</span>
+                                        <span className="text-sm tracking-wider text-gray-900"> {product.price} €</span>
                                     </p>
                                 </div>
                                 <div className="col-span-12 text-center w-full mt-3">
                                     <button
-                                        className="disabled block rounded bg-secondary px-5 py-3 text-md text-text w-full transition hover:bg-purple-300"
+                                        className="disabled block rounded bg-tennis px-5 py-3 text-md text-text w-full transition hover:bg-tennis/55"
                                         data-dashlane-label="true" data-dashlane-rid="4f2810c601fdbcc7"
                                         data-form-type="" onClick={() => addProduct(product._id)}>Add to
                                         cart

@@ -35,14 +35,14 @@ export default function Success() {
                     </div>
                 </div>
                 <div className="text-center mt-4">
-                    <h2 className="text-2xl font-semibold text-gray-800">Checkout Successful</h2>
+                    <h2 className="text-2xl font-semibold text-gray-800">Paiement réussis</h2>
                     <p className="text-gray-600 mt-2 max-w-sm">
-                        Your order has been received and is being processed. We&apos;ll send you an email with more details.
+                        Votre commande a bien été transmise, elle sera envoyée dans les prochains jours.
                     </p>
                     <Link href="/products"
-                          className="block mt-4 text-sm font-medium text-white bg-primary py-2 px-4 rounded-md hover:bg-primary-dark focus:outline-none focus:ring"
+                          className="block mt-4 text-sm font-medium text-white bg-tennis py-2 px-4 rounded-md hover:bg-tennis/55 focus:outline-none focus:ring"
                     >
-                        Continue Shopping
+                        Continuer de voir les produits
                     </Link>
                 </div>
             </div>

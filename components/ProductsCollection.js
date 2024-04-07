@@ -34,19 +34,20 @@ export default function ProductsCollection({allProducts}){
 
     return (
         <section>
-            <select value={selectedCategory} onChange={handleCategorySelect}>
-                <option value="">ko</option>
-                <option value="raquette">r</option>
-                <option value="balle">b</option>
-                <option value="sac">s</option>
-                <option value="cordage">c</option>
+            <label className="mb-1 block text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500">Categorie</label>
+            <select className="block w-full rounded-md border-red-300 shadow-sm focus:border-red-300 focus:ring focus:ring-red-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" value={selectedCategory} onChange={handleCategorySelect}>
+                <option value="">Tout les produits</option>
+                <option value="raquette">Raquette</option>
+                <option value="balle">Balle de tennis</option>
+                <option value="sac">Sac</option>
+                <option value="cordage">Cordage</option>
             </select>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {allProducts?.length > 0 && currentProducts.map((product) => (
                     <div key={product.id}>
                         <li>
                             <div className="group block overflow-hidden">
-                                <div className="relative md:h-[300px] h-[200px]">
+                                <div className="relative md:h-[250px] h-[200px]">
                                     <img
                                         src={product.images[0]}
                                         alt=""
@@ -58,9 +59,9 @@ export default function ProductsCollection({allProducts}){
                                         className="absolute inset-0 h-full w-full object-contain opacity-0 group-hover:opacity-100"
                                     />
                                 </div>
-                                <div className="relative bg-white pt-3">
+                                <div className="relative bg-white pt-2">
                                     <Link href={'/products/' + product._id}>
-                                        <h3 className="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
+                                        <h3 className="text-base text-gray-700 hover:underline">
                                             {product.title}
                                         </h3>
                                     </Link>
@@ -68,12 +69,12 @@ export default function ProductsCollection({allProducts}){
                                     <p className="mt-2">
                                         <span className="sr-only"> Regular Price </span>
 
-                                        <span className="tracking-wider text-gray-900"> {product.price} €</span>
+                                        <span className="text-sm tracking-wider text-gray-900"> {product.price} €</span>
                                     </p>
                                 </div>
                                 <div className="col-span-12 text-center w-full mt-3">
                                     <button
-                                        className="disabled block rounded bg-secondary px-5 py-3 text-md text-text w-full transition hover:bg-purple-300"
+                                        className="disabled block rounded bg-tennis px-5 py-3 text-md text-text w-full transition hover:bg-tennis/55"
                                         data-dashlane-label="true" data-dashlane-rid="4f2810c601fdbcc7"
                                         data-form-type="" onClick={() => addItemToCart(product._id)}>Add to
                                         cart

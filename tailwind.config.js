@@ -18,6 +18,7 @@ module.exports = {
         'primary': '#e7821d',
         'secondary': '#b4b4f3',
         'accent': '#232F3E',
+        'tennis': '#eab308'
       }
     },
   },
