@@ -34,7 +34,7 @@ export default function CookieBanner(){
         <div className={`my-10 mx-auto max-w-max md:max-w-screen-sm
                         fixed bottom-0 left-0 right-0 
                         ${cookieConsent != null ? "hidden" : "flex"} px-3 md:px-4 py-3 justify-between items-center flex-col sm:flex-row gap-4 z-50
-                         bg-gray-700 rounded-lg shadow`}>
+                         bg-gray-500 rounded-lg shadow`}>
 
             <div className='text-center'>
                 <p>Nous utilisons des <span className='font-bold text-tennis'>cookies</span> sur notre site.</p>
