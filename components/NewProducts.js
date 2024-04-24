@@ -26,7 +26,7 @@ export default function NewProducts({newProducts}){
                                 </div>
                                 <div className="relative bg-white pt-2">
                                     <Link href={'/products/' + product._id}>
-                                        <h3 className="text-base text-gray-700 hover:underline " >
+                                        <h3 className="text-base text-gray-700 truncate hover:underline " >
                                             {product.title}
                                         </h3>
                                     </Link>
