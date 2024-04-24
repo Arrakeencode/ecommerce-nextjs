@@ -14,13 +14,12 @@ export default function Cart() {
         if (cartProducts.length > 0) {
             axios.post('/api/cart', {ids: cartProducts})
                 .then(response => {
-                    console.log(response.data); // Ajoutez cette ligne pour afficher les produits dans la console
                     setProducts(response.data);
                     setLoading(false);
                 });
         } else {
             setProducts([]);
-            setLoading(false); // Mettre loading à false quand le panier est vide
+            setLoading(false);
         }
     }, [cartProducts]);
 
@@ -45,10 +44,10 @@ export default function Cart() {
 
     return (
         <section>
-            <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+            <div className="mx-auto max-w-screen-xl pt-24 px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
                 <div className="mx-auto max-w-3xl">
                     <header className="text-center">
-                        <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Your Cart</h1>
+                        <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Votre Panier</h1>
                     </header>
 
                     {cartProducts.length === 0 ? (
@@ -110,14 +109,14 @@ export default function Cart() {
                                     ))
                                 )}
                                 <div className="flex justify-end text-red-400 mb-3">
-                                    <button onClick={deleteCart}>Clear Cart</button>
+                                    <button onClick={deleteCart}>Supprimer le panier</button>
                                 </div>
                             </ul>
                             <div className="mt-6 flex justify-end border-t border-gray-100 pt-6">
                                 <div className="w-screen max-w-lg space-y-4">
                                     <dl className="space-y-0.5 text-md text-gray-700">
                                         <div className="flex justify-between !text-base font-medium">
-                                            <dt>Total ({cartProducts.length} articles)</dt>
+                                            <dt>Total ({cartProducts.length} {cartProducts.length === 1 ? 'article' : 'articles'})</dt>
                                             <dd>{total} €</dd>
                                         </div>
                                     </dl>
@@ -126,15 +125,13 @@ export default function Cart() {
                                             href="/checkout"
                                             className="block rounded bg-tennis px-5 py-3 text-sm text-gray-100 transition hover:bg-tennis/55"
                                         >
-                                            Checkout
+                                            Procéder au paiement
                                         </Link>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     )}
-
-                    {/* Reste du contenu */}
                 </div>
             </div>
         </section>

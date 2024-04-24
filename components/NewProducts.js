@@ -32,17 +32,14 @@ export default function NewProducts({newProducts}){
                                     </Link>
 
                                     <p className="mt-2">
-                                        <span className="sr-only"> Regular Price </span>
-
                                         <span className="text-sm tracking-wider text-gray-900"> {product.price} €</span>
                                     </p>
                                 </div>
                                 <div className="col-span-12 text-center w-full mt-3">
                                     <button
-                                        className="disabled block rounded bg-tennis px-5 py-3 text-md text-text w-full transition hover:bg-tennis/55"
+                                        className="disabled block rounded bg-tennis px-5 py-3 text-white text-md w-full transition hover:bg-tennis/55"
                                         data-dashlane-label="true" data-dashlane-rid="4f2810c601fdbcc7"
-                                        data-form-type="" onClick={() => addProduct(product._id)}>Add to
-                                        cart
+                                        data-form-type="" onClick={() => addProduct(product._id)}>Ajouter au panier
                                     </button>
                                 </div>
                             </div>

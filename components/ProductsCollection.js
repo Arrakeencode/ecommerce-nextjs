@@ -34,8 +34,8 @@ export default function ProductsCollection({allProducts}){
 
     return (
         <section>
-            <label className="mb-1 block text-sm font-medium text-gray-700 after:ml-0.5 after:text-red-500">Categorie</label>
-            <select className="block w-full rounded-md border-red-300 shadow-sm focus:border-red-300 focus:ring focus:ring-red-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" value={selectedCategory} onChange={handleCategorySelect}>
+            <label className="mb-1 block  my-4 font-medium text-gray-700 after:ml-0.5 after:text-red-500">Categorie</label>
+            <select className="block w-full py-1.5 my-2 rounded-md shadow-sm focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" value={selectedCategory} onChange={handleCategorySelect}>
                 <option value="">Tout les produits</option>
                 <option value="raquette">Raquette</option>
                 <option value="balle">Balle de tennis</option>
@@ -67,17 +67,14 @@ export default function ProductsCollection({allProducts}){
                                     </Link>
 
                                     <p className="mt-2">
-                                        <span className="sr-only"> Regular Price </span>
-
                                         <span className="text-sm tracking-wider text-gray-900"> {product.price} €</span>
                                     </p>
                                 </div>
                                 <div className="col-span-12 text-center w-full mt-3">
                                     <button
-                                        className="disabled block rounded bg-tennis px-5 py-3 text-md text-text w-full transition hover:bg-tennis/55"
+                                        className="disabled block rounded bg-tennis px-5 py-3 text-md text-white w-full transition hover:bg-tennis/55"
                                         data-dashlane-label="true" data-dashlane-rid="4f2810c601fdbcc7"
-                                        data-form-type="" onClick={() => addItemToCart(product._id)}>Add to
-                                        cart
+                                        data-form-type="" onClick={() => addItemToCart(product._id)}>Ajouter au panier
                                     </button>
                                 </div>
                             </div>
