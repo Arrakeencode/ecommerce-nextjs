@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer(){
     return (
     <footer className="bg-white">
@@ -13,11 +15,11 @@ export default function Footer(){
                             <a href="mailto:bryanjustb@gmail.com" className="text-gray-500 transition hover:opacity-75"> Contact </a>
                         </li>
                         <li>
-                            <a href="#" className="text-gray-500 transition hover:opacity-75"> Politique de confidentialité </a>
+                            <Link href="/privacyPolicy" className="text-gray-500 transition hover:opacity-75"> Politique de confidentialité </Link>
                         </li>
 
                         <li>
-                            <a href="#" className="text-gray-500 transition hover:opacity-75"> Mention légale </a>
+                            <Link href="/legalDisclaimer" className="text-gray-500 transition hover:opacity-75"> Mention légale </Link>
                         </li>
                     </ul>
                 </div>
