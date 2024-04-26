@@ -124,7 +124,7 @@ export default function Header() {
                                                 <Link className={` ${pathname === '/' ? active : inactive} `} href="/"
                                                       onClick={toggleMobileNav}
                                                 >
-                                                    Acceuil
+                                                    Accueil
                                                 </Link>
                                             </li>
 
