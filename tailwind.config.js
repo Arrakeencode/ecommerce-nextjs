@@ -19,6 +19,12 @@ module.exports = {
         'secondary': '#b4b4f3',
         'accent': '#232F3E',
         'tennis': '#eab308'
+      },
+      screens: {
+        'mls': {'max': '767px'}
+      },
+      width: {
+        'fit-content' : 'fit-content'
       }
     },
   },

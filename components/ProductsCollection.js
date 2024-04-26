@@ -6,14 +6,14 @@ export default function ProductsCollection({allProducts}){
     const { addProduct } = useContext(CartContext)
     const [selectedCategory, setSelectedCategory] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
-    const productsPerPage = 4;
+    const productsPerPage = 8;
 
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
 
     const handleCategorySelect = (event) => {
         setSelectedCategory(event.target.value);
-        setCurrentPage(1); // Reset page number when category changes
+        setCurrentPage(1);
     };
 
     // Filtrer les produits en fonction de la catégorie sélectionnée

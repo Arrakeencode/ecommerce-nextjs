@@ -4,10 +4,6 @@ import { Product } from "@/models/Product";
 import { useContext } from "react";
 import toast from "react-hot-toast";
 
-const formatPrice = (price) => {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-};
-
 export default function ProductPage({ product }) {
     const { addProduct } = useContext(CartContext)
     if (product) {
@@ -44,7 +40,7 @@ export default function ProductPage({ product }) {
                         <div className="mt-4 flex justify-between items-center">
                             <h2 className="text-xl font-semibold text-gray-900">Prix</h2>
                             <p className="mt-2 font-semibold text-lg">
-                                {formatPrice(product.price)} €
+                                {product.price} €
                             </p>
                         </div>
                         <div className="w-full">
