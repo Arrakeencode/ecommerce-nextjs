@@ -24,7 +24,7 @@ export default function Header() {
             <header className="bg-white fixed w-full z-50 border-b-2 sm:relative">
                 <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-2 sm:px-6 lg:px-8 sm:px:4">
                     <Link className="block text-tennis" href="/">
-                        <span className="sr-only">Acceuil</span>
+                        <span className="sr-only">Accueil</span>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                              className="h-8">
                             <path
