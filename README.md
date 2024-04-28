@@ -1,6 +1,23 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Install
+
+```bash
+npm install
+```
+
 ## Getting Started
+
+This project use MongoDB
+You need .env to work properly :
+GOOGLE_ID
+GOOGLE_SECRET
+MONGODB_URI
+STRIPE_KEY
+STRIPE_PKEY
+SUCCESS_URL
+NEXTAUTH_SECRET
+
 
 First, run the development server:
 
@@ -38,3 +55,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Using Docker
+
+Build the container build docker build -t foldername .
+
+Then use docker-compose up --build

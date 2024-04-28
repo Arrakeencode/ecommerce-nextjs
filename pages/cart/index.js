@@ -10,7 +10,6 @@ export default function Cart() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        console.log(cartProducts);
         if (cartProducts.length > 0) {
             axios.post('/api/cart', {ids: cartProducts})
                 .then(response => {

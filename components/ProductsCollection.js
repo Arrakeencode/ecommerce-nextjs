@@ -16,7 +16,6 @@ export default function ProductsCollection({allProducts}){
         setCurrentPage(1);
     };
 
-    // Filtrer les produits en fonction de la catégorie sélectionnée
     const filteredProducts = selectedCategory
         ? allProducts.filter(product => product.category === selectedCategory)
         : allProducts;
