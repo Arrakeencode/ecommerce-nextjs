@@ -10,7 +10,6 @@ export default function Success() {
     }
 
     useEffect(() => {
-        // Appelez la fonction deleteCart une fois que la composante est montée
         deleteCart();
     }, []);
     return (

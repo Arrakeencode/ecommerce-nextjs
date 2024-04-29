@@ -18,10 +18,10 @@ describe('Success', () => {
         renderWithCartContext(<Success />);
 
         // Vérifiez que le message de succès est rendu
-        expect(screen.getByText(/Checkout Successful/i)).toBeInTheDocument();
+        expect(screen.getByText(/Paiement réussis/i)).toBeInTheDocument();
 
         // Vérifiez que le lien Continuer les achats est rendu
-        const continueShoppingLink = screen.getByRole('link', { name: /Continue Shopping/i });
+        const continueShoppingLink = screen.getByRole('link', { name: /Continuer de voir les produits/i });
         expect(continueShoppingLink).toBeInTheDocument();
 
     });
